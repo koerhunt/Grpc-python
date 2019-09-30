@@ -1,0 +1,11 @@
+# For build the proto files run:
+
+`python3 -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. service.proto`
+
+
+# For build docker image run:
+
+`docker build -no-cache .`
+
+#  Run server
+docker run -p 4300:4300 ImageBuildId

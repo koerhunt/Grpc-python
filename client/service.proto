@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+// Servicio gRPC, funciones servidas
+service ComunicationService {
+  
+  // Instanciar variable
+  rpc SendVar (VarRequest) returns (VarResponse);
+
+  // Realizar operacion
+  rpc Operation (OperationRequest) returns (OperationResult);
+}
+
+// Peticion de instanciar una variable y su valor
+message VarRequest {
+  string varValue = 1;
+}
+// Peticion para realizar una operacion
+// suma o multiplicacion
+message OperationRequest {
+  enum Operation{
+    SUM = 0;
+    MULTY = 1;
+  }
+  Operation operation = 1;
+}
+
+// Respuesta resultado de la operacion
+message OperationResult {
+  string result = 1;
+}
+
+// Respuesta nombre de la variable asignada
+message VarResponse {
+  string reply = 1;
+}
